@@ -11,7 +11,7 @@
 
 本项目作者：石仲彦
 
-本项目链接：<https://github.com/13161727021/shizhongyan.github.io>
+本项目链接：<https://github.com/shizhongyangh/550WOS>
 
 此项目是一个开源项目。此项目使用 EPL v2.0 开源许可。开源许可是具有法律效力的合同，请自觉遵守开源许可，尊重他人劳动。
 
