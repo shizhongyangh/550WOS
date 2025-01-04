@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 更改页面标题以提高搜索引擎可搜索性 -->
+    <title>550WOS BIOS Setup</title>
+    <!-- 使用相对路径引用外部CSS文件 -->
+    <link rel="stylesheet" href="./apps/style/bios.css">
+    <link rel="shortcut icon" href="./pwa/logo.png" type="image/x-icon">
+</head>
+
+<body id="body" ontouchstart="return;">
+    <div id="confirmContainer">
+        <div id="exit_confirm">
+            <div id="confirm" data-show="false">
+                <p id="confirm-tit"> Save configuration changes and exit now? </p>
+                <div class="btns" style="display: flex;justify-content: space-around;">
+                    <a class="confirm-button" id="ok-btn" style="background-color: #000;color: #fff;" click="" ontouchstart="">[OK]</a>
+                    <a class="confirm-button" style="color: #000;background-color: #fff;" ontouchstart="$('#confirmContainer').css('display', 'none');$('#confirm').attr('data-show', 'false');" click="$('#confirmContainer').css('display', 'none');$('#confirm').attr('data-show', 'false');" id="cancel-btn">[Cancel]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="background"></div>
+
+    <head>
+        <nav>
+            <p class="tit">BIOS Setup Utility</p>
+        </nav>
+        <nav class="pages" style="padding-left: 15px;">
+            <a class="tab tab0" id="main" click="tab = 0; changePage(0)" ontouchstart="changePage(0)">Main</a>
+            <a class="tab tab1" id="exit" click="tab = 1; changePage(1)" ontouchstart="changePage(1)">Exit</a>
+        </nav>
+    </head>
+    <div id="mainPage" class="page page0">
+        <div class="table">
+            <div>System Time: </div>
+            <div id="time">[11:45:14]</div>
+            <div>System Date: </div>
+            <div id="date">[11/4/5141]</div>
+        </div>
+    </div>
+    <div id="exitPage" class="page page1">
+        <div class="container">
+            <div click="BIOS_confirm(' Save configuration changes and exit now? ','toBoot()')" ontouchstart="BIOS_confirm(' Save configuration changes and exit now? ','toBoot()')" class="exit" id="e1">Exit Saving Changes</div>
+            <div click="BIOS_confirm(' Discard changes and exit setup? ','toBoot()');" ontouchstart="BIOS_confirm(' Discard changes and exit setup? ','toBoot()');" class="exit" id="e2">Exit Discarding Changes</div>
+            <div click="BIOS_confirm('  Restore default setup?  ','$(`#confirmContainer`).css(`display`, `none`);$(`#confirm`).attr(`data-show`, `false`);');" ontouchstart="BIOS_confirm('  Restore default setup?  ','$(`#confirmContainer`).css(`display`, none); $(`#confirm`).attr(`data-show`, `false`);');" class="exit" id="e3">Restore Defaults</div>
+        </div>
+    </div>
+    <script src="./scripts/jq.min.js"></script>
+    <script src="scripts/bios_kernel.js"></script>
+</body>
+
+</html>

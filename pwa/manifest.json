@@ -1,0 +1,15 @@
+{
+  "name": "550W",
+  "short_name": "550W",
+  "display": "standalone",
+  "start_url": "boot.html",
+  "prefer_related_applications": true,
+  "background_color": "#000",
+  "icons": [
+    {
+      "src": "icon/logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}

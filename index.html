@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=boot.html" />
+    <title></title>
+	<script>
+        document.addEventListener("contextmenu", e => e.preventDefault(), false);
+
+		document.addEventListener("keydown", e => {
+    // DISABLE CONTROL AND ALL FUNCTION KEYS
+    // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+    // DISABLE CONTROL AND F12
+    if (e.ctrlKey || e.keyCode==123) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+});
+    </script>
+	<script>
+    //禁止调试代码
+    try {
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        } else {
+            document.oncontextmenu = function (e) {
+                return false;
+            };
+            document.onkeydown = function (e) {
+                if (e.keyCode === 123) {
+                    return false;
+                }
+            };
+            (() => {
+                function block() {
+                    setInterval(() => {
+                        if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+                            window.location.href='about:link';
+                        }
+                        debugger;
+                    }, 50);
+                }
+                try {
+                    block();
+                } catch (err) {}
+            })();
+            window.oncopy = function() {
+                return false; // 阻止复制操作
+            };
+
+            (function(){
+                var i = 0;
+                var re = function(){
+                    window.location.href='about:link';
+                };
+                console.log(re);
+                re.toString = function(){
+                    window.location.href='about:link';
+                };
+            })();
+        }
+    } catch(e) {}
+</script>
+</head>
+<body>
+</body>
+</html>
