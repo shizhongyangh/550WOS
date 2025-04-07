@@ -2246,7 +2246,7 @@ let apps = {
         get: () => {
             apps.about.run_loading('#contri');
             // 实时获取项目贡献者
-            $.get('https://api.github.com/repos/13161727021/550WOS/contributors').then(cs => {
+            $.get('https://api.github.com/repos/shizhongyangh/550WOS/contributors').then(cs => {
                 setTimeout(() => {
                     $('#contri').html('');
                     cs.forEach(c => {
@@ -2258,7 +2258,7 @@ let apps = {
         },
         get_star: () => {
             apps.about.run_loading('#StarShow');
-            const repoFullName = '13161727021/550WOS';
+            const repoFullName = 'shizhongyangh/550WOS';
             fetch(`https://api.github.com/repos/${repoFullName}`)
                 .then(response => response.json())
                 .then(data => {
